@@ -67,6 +67,7 @@ jobs:
           delete-branch: true
           title: 'v${{ env.PACKAGE_VERSION }}'
           body: |
+            <!-- gh api "/repos/{owner}/{repo}/releases/generate-notes" -f tag_name=${{ env.PACKAGE_VERSION }} -->
             ${{ steps.release_note.outputs.stdout }}
       - name: Check Pull Request
         run: |
