@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set PACKAGE_VERSION
-        run: echo "PACKAGE_VERSION=$(cat lerna.json | jq .version)" >> $GITHUB_ENV
+        run: echo "PACKAGE_VERSION=$(cat lerna.json | jq -r .version)" >> $GITHUB_ENV
       - name: Tag Check
         id: tag_check
         run: |
@@ -58,7 +58,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set PACKAGE_VERSION
-        run: echo "PACKAGE_VERSION=$(cat lerna.json | jq .version)" >> $GITHUB_ENV
+        run: echo "PACKAGE_VERSION=$(cat lerna.json | jq -r .version)" >> $GITHUB_ENV
       - name: Install
         run: yarn install
       - name: Publish
