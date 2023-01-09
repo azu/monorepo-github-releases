@@ -20,21 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-          node-version: 18
-          registry-url: 'https://npm.pkg.github.com'
-      - name: Git Identity
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set PACKAGE_VERSION
-        run: node -p -e '`PACKAGE_VERSION=${require("./lerna.json").version}`' >> $GITHUB_ENV
+        run: echo "PACKAGE_VERSION=$(cat lerna.json | jq .version)" >> $GITHUB_ENV
       - name: Tag Check
         id: tag_check
         run: |
@@ -55,6 +42,19 @@ jobs:
     needs: check
     if: always() && needs.check.outputs.exists_tag == 'false'
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: 18
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Git Identity
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install
         run: yarn install
       - name: Publish
