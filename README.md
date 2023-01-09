@@ -1,35 +1,76 @@
-# monorepo-sandbox
+# monorepo + lerna + GitHub Release's [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)
 
-GitHub Releases generate Release Notes.
+This example monorepo show release flow with [lerna](https://github.com/lerna/lerna) + GitHub Release's [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)
 
-PR Workflow:
+## Pattern A: Review Release PR and Publish via CI
 
-- CI: Create PR
-- HUMAN: Rewrite Release Note in PR body
-- HUMAN: Merge PR
-- CI: Release Package
+UseCase:
 
-Force publish workflow:
+- Review Release Note before publishing
+- Publish from CI
 
-1. Dispatch "release"
-2. Open Release Page
-3. Generate Release Note
+Steps:
+
+1. Create Release PR via dispatching [.github/workflows/create-release-pr.yml](.github/workflows/create-release-pr.yml)
+   - You can select new version with semver(patch,minor,major)
+   - ![Create Release Pull Request Image](./create-release-pr.png)
+2. [CI] Create Release PR
+   - Update lerna.json and packages/*/package.json `version`
+   - Fill the Pull Request body with [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)
+3. Review Release PR
+    - You can modify PR body
+4. Merge Release PR
+5. [CI] Publish new version to npm and GitHub Release
+    - GitHub Release body is filled with PR body
+
+## Pattern B: Just Publish from CI 
+
+UseCase:
+
+- Just Publish from CI
+- Retry to publish if failed
+
+Steps:
+
+1. Dispatch [.github/workflows/release.yml](.github/workflows/release.yml) workflow
+2. [CI] Publish new version to npm and GitHub Release if not published yet
+3. Open GitHub Releases and Write Release Note manually
+
+This manual workflow requires updating version before executing.
+Most use cause is for retrying to publish if failed on Pattern A.
+
+## Pattern C: Publish from Local
+
+UseCase:
+
+- Just Publish from CI
+
+You can just run following command:
+
+    npm run versionup && npm run release && gh release create --generate-notes "$(git describe --tags --abbrev=0)"
+
+1. Update lerna.json and packages/*/package.json `version`
+2. Publish to npm
+3. Create Release Note on GitHub Releases
 
 ## Changelog
 
-See [Releases page](https://github.com/azu/monorepo-sandbox/releases).
+See [Releases page](https://github.com/azu/monorepo-sandbox[]()/releases).
 
-## Running tests
+## Develop
 
-Install devDependencies and Run `npm test`:
+This monorepo uses GitHUb Packages Registry.
 
-    npm test
+npm package name link to repository owner on GitHUb Packages Registry.
+
+So, You need to change each `packages/*/package.json` after fork this repository.
+
+- name: `@{you}/<name>`
+- repository.url: "https://github.com/{you}/monorepo-github-releases.git"
 
 ## Contributing
 
 Pull requests and stars are always welcome.
-
-For bugs and feature requests, [please create an issue](https://github.com/azu/monorepo-sandbox/issues).
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`

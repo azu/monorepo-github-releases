@@ -1,18 +1,18 @@
 {
   "private": true,
-  "name": "monorepo-sandbox",
+  "name": "monorepo-github-releases",
   "version": "1.0.0",
   "description": "monorepo sandbox",
   "keywords": [
     "monorepo"
   ],
-  "homepage": "https://github.com/azu/monorepo-sandbox",
+  "homepage": "https://github.com/azu/monorepo-github-releases",
   "bugs": {
-    "url": "https://github.com/azu/monorepo-sandbox/issues"
+    "url": "https://github.com/azu/monorepo-github-releases/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/azu/monorepo-sandbox.git"
+    "url": "https://github.com/azu/monorepo-github-releases.git"
   },
   "license": "MIT",
   "author": "azu",
