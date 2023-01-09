@@ -24,6 +24,7 @@ jobs:
       - name: setup Node
         uses: actions/setup-node@v3
         with:
+          cache: 'yarn'
           node-version: '18'
       - name: Install
         run: yarn install
