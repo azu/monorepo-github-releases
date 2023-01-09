@@ -1,6 +1,6 @@
 {
   "name": "@azu/monorepo-sandbox-release-z",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "description": "[example] z is packages",
   "homepage": "https://github.com/azu/monorepo-sandbox/tree/master/packages/monorepo-sandbox-z#readme",
   "repository": {
