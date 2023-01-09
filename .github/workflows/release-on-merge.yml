@@ -64,7 +64,7 @@ jobs:
       - name: Publish
         run: npm run release-ci
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # GitHub Package Registry
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Package Registry
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Git Tag
         uses: pkgdeps/git-tag-action@v2
