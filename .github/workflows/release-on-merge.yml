@@ -22,6 +22,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          registry-url: 'https://npm.pkg.github.com'
       - name: Git Identity
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -51,6 +52,7 @@ jobs:
         if: steps.tag_check.outputs.exists_tag == 'false'
         run: npm run release-ci
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # GitHub Package Registry
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Git Tag
         if: steps.tag_check.outputs.exists_tag == 'false'
