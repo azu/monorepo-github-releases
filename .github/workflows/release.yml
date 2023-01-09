@@ -4,6 +4,9 @@
 # Note: Force publish
 # You can publish packages manually by running workflow dispatch
 # This workflow dispatch skip jobs.check process
+# 1. dispatch "release" workflow
+# 2. Open Release Page
+# 3. Generate Release Note
 name: Release
 
 on:
