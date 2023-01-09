@@ -1,6 +1,6 @@
 {
   "name": "@azu/monorepo-sandbox-release-x",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "[example] x package",
   "repository": {
     "type": "git",
