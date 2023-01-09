@@ -1,6 +1,6 @@
 {
   "name": "@azu/monorepo-sandbox-y",
-  "version": "1.5.7",
+  "version": "1.5.8",
   "description": "[example] y is package",
   "repository": {
     "type": "git",
