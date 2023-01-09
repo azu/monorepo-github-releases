@@ -16,7 +16,7 @@ Steps:
    - You can select new version with semver(patch,minor,major)
    - ![Create Release Pull Request Image](./create-release-pr.png)
 2. [CI] Create Release PR
-   - Update lerna.json and packages/*/package.json `version`
+   - Update `lerna.json`'s `version` and `packages/*/package.json`'s `version`
    - Fill the Pull Request body with [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)
    - e.g. https://github.com/azu/monorepo-github-releases/pull/18
 3. Review Release PR
@@ -27,33 +27,37 @@ Steps:
     - e.g. https://github.com/azu/monorepo-github-releases/releases/tag/v1.6.3
 
 > **Warning**
-> If Publish is failed, you can re-run the workflow, or You can move to Pattern B.
+> If Publish is failed, you can re-run the workflow, or You can move to Pattern A-5.
 
-## Pattern B: Just Publish from CI 
+## Pattern A-5: Just Publish from CI 
+
+Pattern A's step 5 is failed in sometimes because npm registry is down or some package is broken.
+
+You can re-publish it manually, but you can use CI for re-publishing.
 
 UseCase:
 
-- Just Publish from CI
 - Retry to publish if failed
 
 Steps:
 
+0. [Optional] You can commit to fix broken packages
 1. Dispatch [.github/workflows/release.yml](https://github.com/azu/monorepo-github-releases/actions/workflows/release.yml) workflow
 2. [CI] Publish new version to npm and GitHub Release if not published yet
    - The release note content is [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes) by default
 
 > **Warning**
 > This manual workflow requires updating version before executing.  
-> Most use-cause is for retrying to publish if failed on Pattern A.
+> So, Most use-cause is for retrying to publish if failed on Pattern A.  
+> If you want to fix something, It is preferable to start again from A.
 
 > **Note**
 > No matter how many times this workflow is executed, the result is the same.
 > - No publish if packages are already published
-> - No tag if git tag is added
+> - No add tag if git tag is added
 > - Overwrite release note if GitHub Release is already created
 
-
-## Pattern C: Publish from Local
+## Pattern B: Publish from Local
 
 UseCase:
 
