@@ -67,6 +67,7 @@ jobs:
           title: 'v${{ env.PACKAGE_VERSION }}'
           body: |
             ${{ steps.release_note.outputs.stdout }}
+          labels: "Type: Release"
       - name: Check Pull Request
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
