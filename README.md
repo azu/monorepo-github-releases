@@ -98,6 +98,8 @@ So, You need to change each `packages/*/package.json` after fork this repository
 
 ## Related
 
+- [azu/github-label-setup: 📦 Setup GitHub label without configuration.](https://github.com/azu/github-label-setup)
+  - This monorepo use this label set for [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)
 - [azu/lerna-monorepo-github-actions-release: Lerna + monorepo +GitHub Actions Release Flow](https://github.com/azu/lerna-monorepo-github-actions-release)
   - lerna + conventional commit release flow with GitHub Actions
 
