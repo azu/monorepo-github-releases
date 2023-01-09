@@ -22,11 +22,10 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "push:current": "git push origin HEAD -u",
-    "versionup": "npm run push:current && lerna version --conventional-commits",
-    "versionup:patch": "npm run push:current && lerna version patch --conventional-commits",
-    "versionup:minor": "npm run push:current && lerna version minor --conventional-commits",
-    "versionup:major": "npm run push:current && lerna version minor --conventional-commits",
+    "versionup": "lerna version --no-push --no-git-tag-version",
+    "versionup:patch": "lerna version patch --no-push --no-git-tag-version",
+    "versionup:minor": "lerna version minor --no-push --no-git-tag-version",
+    "versionup:major": "lerna version major --no-push --no-git-tag-version",
     "release": "lerna publish from-package"
   },
   "devDependencies": {
