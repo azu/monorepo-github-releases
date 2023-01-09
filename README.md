@@ -2,7 +2,7 @@
 
 GitHub Releases generate Release Notes.
 
-PR Workflows:
+PR Workflow:
 
 - CI: Create PR
 - HUMAN: Rewrite Release Note in PR body
