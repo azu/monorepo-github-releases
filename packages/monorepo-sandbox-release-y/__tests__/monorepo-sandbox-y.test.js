@@ -2,6 +2,6 @@
 
 const monorepoSandboxY = require('..');
 
-describe('@azu/monorepo-sandbox-y', () => {
+describe('@azu/monorepo-sandbox-release-y', () => {
     it('needs tests');
 });

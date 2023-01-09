@@ -1,11 +1,11 @@
 {
-  "name": "@azu/monorepo-sandbox-x",
+  "name": "@azu/monorepo-sandbox-release-x",
   "version": "1.6.0",
   "description": "[example] x package",
   "repository": {
     "type": "git",
     "url": "https://github.com/azu/monorepo-github-releases.git",
-    "directory": "packages/monorepo-sandbox-x"
+    "directory": "packages/monorepo-sandbox-release-x"
   },
   "homepage": "https://github.com/azu/monorepo-sandbox/tree/master/packages/monorepo-sandbox-x#readme",
   "license": "MIT",
@@ -13,7 +13,7 @@
   "files": [
     "lib"
   ],
-  "main": "lib/monorepo-sandbox-x.js",
+  "main": "",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
