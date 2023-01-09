@@ -17,13 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       EXISTS_TAG: ${{ steps.tag_check.outputs.EXISTS_TAG }}
-      PACKAGE_VERSION: ${{ steps.package_version.outputs.PACKAGE_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set PACKAGE_VERSION
-        id: package_version
-        run: echo "PACKAGE_VERSION=$(cat lerna.json | jq .version)" >> $GITHUB_OUTPUT
+        run: echo "PACKAGE_VERSION=$(cat lerna.json | jq .version)" >> $GITHUB_ENV
       - name: Tag Check
         id: tag_check
         run: |
@@ -36,7 +34,7 @@ jobs:
             echo "EXISTS_TAG=false" >> $GITHUB_OUTPUT
           fi
         env:
-          TAG_NAME: v${{ steps.package_version.outputs.PACKAGE_VERSION }}
+          TAG_NAME: v${{ env.PACKAGE_VERSION }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   release:
@@ -59,6 +57,8 @@ jobs:
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set PACKAGE_VERSION
+        run: echo "PACKAGE_VERSION=$(cat lerna.json | jq .version)" >> $GITHUB_ENV
       - name: Install
         run: yarn install
       - name: Publish
@@ -69,7 +69,7 @@ jobs:
       - name: Create Git Tag
         uses: pkgdeps/git-tag-action@v2
         with:
-          version: ${{ needs.check.outputs.PACKAGE_VERSION }}
+          version: ${{ env.CURRENT_VERSION }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           github_repo: ${{ github.repository }}
           git_commit_sha: ${{ github.sha }}
@@ -80,7 +80,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ needs.check.outputs.PACKAGE_VERSION }}
+          tag_name: v${{ env.CURRENT_VERSION }}
           # Copy Pull Request's tile and body to Release Note
           release_name: ${{ github.event.pull_request.title }}
           body: ${{ github.event.pull_request.body }}
@@ -95,5 +95,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '🎉 Release https://github.com/${{ github.repository }}/releases/tag/v${{ needs.check.outputs.PACKAGE_VERSION }}'
+              body: '🎉 Release https://github.com/${{ github.repository }}/releases/tag/v${{ env.CURRENT_VERSION }}'
             })
