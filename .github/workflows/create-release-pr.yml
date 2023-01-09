@@ -36,12 +36,13 @@ jobs:
           SEMVER: ${{ github.event.inputs.semver }}
           GIT_AUTHOR_NAME: ${{ github.actor }}
           GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
-      - name: package-version
+      - name: Set PACKAGE_VERSION
         run: node -p -e '`PACKAGE_VERSION=${require("./lerna.json").version}`' >> $GITHUB_ENV
       - name: Get GitHub Release Note
+        id: release_note
         run: |
             RELEASE_NOTE=$(gh api "/repos/{owner}/{repo}/releases/generate-notes" -f tag_name=${PACKAGE_VERSION} --jq .body)
-            echo "RELEASE_NOTE=${RELEASE_NOTE}" >> $GITHUB_ENV
+            echo "RELEASE_NOTE=${RELEASE_NOTE}" >> $GITHUB_OUTPUT
         env:
           PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -61,7 +62,7 @@ jobs:
           delete-branch: true
           title: 'v${{ env.PACKAGE_VERSION }}'
           body: |
-            ${{ env.RELEASE_NOTE }}
+            ${{ steps.release_note.outputs.RELEASE_NOTE }}
       - name: Check Pull Request
         run: |
           echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
