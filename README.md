@@ -25,6 +25,9 @@ Steps:
     - GitHub Release body is filled with PR body
     - e.g. https://github.com/azu/monorepo-github-releases/releases/tag/v1.6.3
 
+> **Note**
+> If Publish is failed, you can re-run the workflow, or You can move to Pattern B.
+
 ## Pattern B: Just Publish from CI 
 
 UseCase:
@@ -34,18 +37,20 @@ UseCase:
 
 Steps:
 
+0. Commit package version update without tags
 1. Dispatch [.github/workflows/release.yml](https://github.com/azu/monorepo-github-releases/actions/workflows/release.yml) workflow
 2. [CI] Publish new version to npm and GitHub Release if not published yet
 3. Open GitHub Releases and Write Release Note manually
 
-This manual workflow requires updating version before executing.
-Most use cause is for retrying to publish if failed on Pattern A.
+> **Note**
+> This manual workflow requires updating version before executing.
+> Most use cause is for retrying to publish if failed on Pattern A.
 
 ## Pattern C: Publish from Local
 
 UseCase:
 
-- Just Publish from CI
+- Just Publish from Local
 
 You can just run following command:
 
