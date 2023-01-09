@@ -28,7 +28,7 @@ Steps:
     - e.g. https://github.com/azu/monorepo-github-releases/releases/tag/v1.6.3
 
 > **Warning**
-> If Publish is failed, you can re-run the workflow, or You can move to Pattern A-5.
+> If the publishing(Step 5) is failed, you can re-run the workflow, or You can move to Pattern A-5.
 
 ## Pattern A-5: Just Publish from CI 
 
