@@ -25,7 +25,7 @@ Steps:
     - GitHub Release body is filled with PR body
     - e.g. https://github.com/azu/monorepo-github-releases/releases/tag/v1.6.3
 
-> **Note**
+> **Warning**
 > If Publish is failed, you can re-run the workflow, or You can move to Pattern B.
 
 ## Pattern B: Just Publish from CI 
@@ -43,8 +43,8 @@ Steps:
 3. Open GitHub Releases and Write Release Note manually
 
 > **Note**
-> This manual workflow requires updating version before executing.
-> Most use cause is for retrying to publish if failed on Pattern A.
+> This manual workflow requires updating version before executing.  
+> Most use-cause is for retrying to publish if failed on Pattern A.
 
 ## Pattern C: Publish from Local
 
