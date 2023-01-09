@@ -44,7 +44,7 @@ Steps:
 
 0. [Optional] You can commit to fix broken packages
 1. Dispatch [.github/workflows/release.yml](https://github.com/azu/monorepo-github-releases/actions/workflows/release.yml) workflow
-2. [CI] Publish new version to npm and GitHub Release if not published yet
+2. [CI] Publish new version to npm and create new GitHub Release if not published yet
    - The release note content is [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes) by default
 
 > **Warning**
