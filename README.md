@@ -42,9 +42,16 @@ Steps:
 2. [CI] Publish new version to npm and GitHub Release if not published yet
 3. Open GitHub Releases and Write Release Note manually
 
-> **Note**
+> **Warning**
 > This manual workflow requires updating version before executing.  
 > Most use-cause is for retrying to publish if failed on Pattern A.
+
+> **Note**
+> No matter how many times this workflow is executed, the result of the execution will be the same.
+> - No publish if packages are already published
+> - No tag if git tag is added
+> - Overwrite release note if GitHub Release is already created
+
 
 ## Pattern C: Publish from Local
 
