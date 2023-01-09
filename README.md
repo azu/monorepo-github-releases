@@ -86,6 +86,11 @@ So, You need to change each `packages/*/package.json` after fork this repository
 - name: `@{you}/<name>`
 - repository.url: "https://github.com/{you}/monorepo-github-releases.git"
 
+## Related
+
+- [azu/lerna-monorepo-github-actions-release: Lerna + monorepo +GitHub Actions Release Flow](https://github.com/azu/lerna-monorepo-github-actions-release)
+  - lerna + conventional commit release flow with GitHub Actions
+
 ## Contributing
 
 Pull requests and stars are always welcome.
