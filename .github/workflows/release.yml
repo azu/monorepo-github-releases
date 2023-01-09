@@ -99,6 +99,7 @@ jobs:
           body: ${{ github.event.pull_request.body }}
           draft: false
           prerelease: false
+          generate_release_notes: ${{ !github.event.pull_request.body }}
           labels: "Type: Release"
       - uses: actions/github-script@v6
         if: github.event_name != 'workflow_dispatch'
