@@ -17,11 +17,13 @@ Steps:
 2. [CI] Create Release PR
    - Update lerna.json and packages/*/package.json `version`
    - Fill the Pull Request body with [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)
+   - e.g. https://github.com/azu/monorepo-github-releases/pull/18
 3. Review Release PR
     - You can modify PR body
 4. Merge Release PR
 5. [CI] Publish new version to npm and GitHub Release
     - GitHub Release body is filled with PR body
+    - e.g. https://github.com/azu/monorepo-github-releases/releases/tag/v1.6.3
 
 ## Pattern B: Just Publish from CI 
 
