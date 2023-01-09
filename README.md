@@ -47,7 +47,7 @@ Steps:
 > Most use-cause is for retrying to publish if failed on Pattern A.
 
 > **Note**
-> No matter how many times this workflow is executed, the result of the execution will be the same.
+> No matter how many times this workflow is executed, the result is the same.
 > - No publish if packages are already published
 > - No tag if git tag is added
 > - Overwrite release note if GitHub Release is already created
