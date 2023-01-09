@@ -11,7 +11,7 @@ UseCase:
 
 Steps:
 
-1. Create Release PR via dispatching [.github/workflows/create-release-pr.yml](.github/workflows/create-release-pr.yml)
+1. Create Release PR via dispatching [.github/workflows/create-release-pr.yml](https://github.com/azu/monorepo-github-releases/actions/workflows/create-release-pr.yml)
    - You can select new version with semver(patch,minor,major)
    - ![Create Release Pull Request Image](./create-release-pr.png)
 2. [CI] Create Release PR
@@ -32,7 +32,7 @@ UseCase:
 
 Steps:
 
-1. Dispatch [.github/workflows/release.yml](.github/workflows/release.yml) workflow
+1. Dispatch [.github/workflows/release.yml](https://github.com/azu/monorepo-github-releases/actions/workflows/release.yml) workflow
 2. [CI] Publish new version to npm and GitHub Release if not published yet
 3. Open GitHub Releases and Write Release Note manually
 
