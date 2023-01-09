@@ -5,7 +5,7 @@
   "homepage": "https://github.com/azu/monorepo-sandbox/tree/master/packages/monorepo-sandbox-z#readme",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/azu/monorepo-sandbox.git",
+    "url": "https://github.com/azu/monorepo-github-releases.git",
     "directory": "packages/monorepo-sandbox-z"
   },
   "license": "MIT",
