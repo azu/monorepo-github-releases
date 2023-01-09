@@ -26,7 +26,7 @@
     "versionup:minor": "lerna version minor --no-push --no-git-tag-version",
     "versionup:major": "lerna version major --no-push --no-git-tag-version",
     "release": "lerna publish from-package",
-    "release-ci": "lerna publish from-package --yes --no-verify-access"
+    "release-ci": "lerna publish from-package --yes"
   },
   "devDependencies": {
     "lerna": "^6.4.0"
