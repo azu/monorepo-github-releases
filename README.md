@@ -24,7 +24,8 @@ Steps:
     - You can modify PR body
 4. Merge Release PR
 5. [CI] Publish new version to npm and GitHub Release
-    - GitHub Release body is filled with PR body
+    - The release note content is same to PR body
+    - CI copy to release note from PR body when merge the PR
     - e.g. https://github.com/azu/monorepo-github-releases/releases/tag/v1.6.3
 
 > **Warning**
