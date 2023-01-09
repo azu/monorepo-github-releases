@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "name": "monorepo-sandbox",
+  "version": "1.0.0",
+  "description": "monorepo sandbox",
+  "keywords": [
+    "monorepo"
+  ],
+  "homepage": "https://github.com/azu/monorepo-sandbox",
+  "bugs": {
+    "url": "https://github.com/azu/monorepo-sandbox/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azu/monorepo-sandbox.git"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "push:current": "git push origin HEAD -u",
+    "versionup": "npm run push:current && lerna version --conventional-commits",
+    "versionup:patch": "npm run push:current && lerna version patch --conventional-commits",
+    "versionup:minor": "npm run push:current && lerna version minor --conventional-commits",
+    "versionup:major": "npm run push:current && lerna version minor --conventional-commits",
+    "release": "lerna publish from-package"
+  },
+  "devDependencies": {
+    "lerna": "^6.4.0"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}

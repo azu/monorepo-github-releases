@@ -1,0 +1,26 @@
+{
+  "name": "@azu/monorepo-sandbox-x",
+  "version": "1.5.7",
+  "description": "[example] x package",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/azu/monorepo-sandbox.git",
+    "directory": "packages/monorepo-sandbox-x"
+  },
+  "homepage": "https://github.com/azu/monorepo-sandbox/tree/master/packages/monorepo-sandbox-x#readme",
+  "license": "MIT",
+  "author": "azu <azuciao@gmail.com>",
+  "files": [
+    "lib"
+  ],
+  "main": "lib/monorepo-sandbox-x.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "scripts": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
+}
