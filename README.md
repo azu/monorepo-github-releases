@@ -1,6 +1,10 @@
 # monorepo-sandbox
 
-monorepo sandbox
+GitHub Releases generate Release Notes.
+
+- CI: Create PR
+- HUMAN: Merge PR
+- CI: Release Package
 
 [![Actions Status](https://github.com/azu/monorepo-sandbox/workflows/publish/badge.svg)](https://github.com/azu/monorepo-sandbox/actions?query=workflow%3A"publish")
 
