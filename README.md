@@ -2,22 +2,18 @@
 
 GitHub Releases generate Release Notes.
 
+PR Workflows:
+
 - CI: Create PR
 - HUMAN: Rewrite Release Note in PR body
 - HUMAN: Merge PR
 - CI: Release Package
 
-[![Actions Status](https://github.com/azu/monorepo-sandbox/workflows/publish/badge.svg)](https://github.com/azu/monorepo-sandbox/actions?query=workflow%3A"publish")
+Force publish workflow:
 
-## Install
-
-Install with [npm](https://www.npmjs.com/):
-
-    npm install monorepo-sandbox
-
-## Usage
-
-- [ ] Write usage instructions
+1. Dispatch "release"
+2. Open Release Page
+3. Generate Release Note
 
 ## Changelog
 
