@@ -39,10 +39,10 @@ jobs:
       - name: Set PACKAGE_VERSION
         run: node -p -e '`PACKAGE_VERSION=${require("./lerna.json").version}`' >> $GITHUB_ENV
       - name: Get GitHub Release Note
+        uses: gh640/command-result-action@v1
         id: release_note
-        run: |
-            RELEASE_NOTE=$(gh api "/repos/{owner}/{repo}/releases/generate-notes" -f tag_name=${PACKAGE_VERSION} --jq .body)
-            echo "RELEASE_NOTE=${RELEASE_NOTE}" >> $GITHUB_OUTPUT
+        with:
+          command: gh api "/repos/{owner}/{repo}/releases/generate-notes" -f tag_name=${PACKAGE_VERSION} --jq .body
         env:
           PACKAGE_VERSION: ${{ env.PACKAGE_VERSION }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
