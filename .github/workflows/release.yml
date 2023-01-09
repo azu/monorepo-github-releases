@@ -4,7 +4,7 @@
 # Note: Force publish
 # You can publish packages manually by running workflow dispatch
 # This workflow dispatch skip jobs.check process
-name: Release On Merge
+name: Release
 
 on:
   pull_request:
