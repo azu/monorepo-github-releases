@@ -2,6 +2,8 @@
 
 This example monorepo shows release flow with [lerna](https://github.com/lerna/lerna) + GitHub Release's [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)
 
+You can publish packages in monorepo via CI(Pattern A) or Local(Pattern B).
+
 ## Pattern A: Review Release PR and Publish via CI
 
 UseCase:
@@ -58,13 +60,21 @@ Steps:
 
 ## Pattern B: Publish from Local
 
+You can publish packages and generate release note from local.
+
+Requirements:
+
+- [GitHub CLI](https://cli.github.com/)
+
 UseCase:
 
-- Just Publish from Local
+- Publish from Local
 
 You can just run following command:
 
     npm run versionup && npm run release && gh release create --generate-notes "$(git describe --tags --abbrev=0)"
+
+This command do next steps:
 
 1. Update `lerna.json`'s `version` and `packages/*/package.json`'s `version`
 2. Publish to npm
