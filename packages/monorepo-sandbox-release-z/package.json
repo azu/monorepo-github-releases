@@ -13,11 +13,7 @@
   "files": [
     "lib"
   ],
-  "main": "",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "main": "lib/monorepo-sandbox-z.js",
   "scripts": {},
   "dependencies": {
     "@azu/monorepo-sandbox-release-y": "^1.6.1"
