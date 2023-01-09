@@ -4,7 +4,7 @@
   "description": "[example] y is package",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/azu/monorepo-sandbox.git",
+    "url": "https://github.com/azu/monorepo-github-releases.git",
     "directory": "packages/monorepo-sandbox-y"
   },
   "homepage": "https://github.com/azu/monorepo-sandbox/tree/master/packages/monorepo-sandbox-y#readme",

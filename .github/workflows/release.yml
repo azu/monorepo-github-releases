@@ -97,6 +97,7 @@ jobs:
           prerelease: false
           labels: "Type: Release"
       - uses: actions/github-script@v6
+        if: github.event_name != 'workflow_dispatch'
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
