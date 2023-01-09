@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       semver:
-        description: 'New Version'
+        description: 'New Version(semver)'
         required: true
         default: 'patch'
         type: choice
