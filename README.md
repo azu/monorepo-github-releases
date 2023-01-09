@@ -2,6 +2,7 @@
 
 This example monorepo show release flow with [lerna](https://github.com/lerna/lerna) + GitHub Release's [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes)
 
+
 ## Pattern A: Review Release PR and Publish via CI
 
 UseCase:
@@ -37,10 +38,9 @@ UseCase:
 
 Steps:
 
-0. Commit package version update without tags
 1. Dispatch [.github/workflows/release.yml](https://github.com/azu/monorepo-github-releases/actions/workflows/release.yml) workflow
 2. [CI] Publish new version to npm and GitHub Release if not published yet
-3. Open GitHub Releases and Write Release Note manually
+   - The release note content is [Automatically generated release notes](https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes) by default
 
 > **Warning**
 > This manual workflow requires updating version before executing.  
