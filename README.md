@@ -3,6 +3,7 @@
 GitHub Releases generate Release Notes.
 
 - CI: Create PR
+- HUMAN: Rewrite Release Note in PR body
 - HUMAN: Merge PR
 - CI: Release Package
 
