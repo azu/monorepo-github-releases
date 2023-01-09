@@ -63,7 +63,7 @@ You can just run following command:
 
     npm run versionup && npm run release && gh release create --generate-notes "$(git describe --tags --abbrev=0)"
 
-1. Update lerna.json and packages/*/package.json `version`
+1. Update `lerna.json`'s `version` and `packages/*/package.json`'s `version`
 2. Publish to npm
 3. Create Release Note on GitHub Releases
 
