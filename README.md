@@ -105,7 +105,7 @@ So, You need to change each `packages/*/package.json` after fork this repository
 
 ## Contributing
 
-Pull requests and stars are always welcome.
+Pull requests and stars are always welcome!
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
