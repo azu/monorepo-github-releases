@@ -19,8 +19,7 @@
     "monorepo-sandbox-x": "^0.2.1"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "gitHead": "58802f67d8c744d4f0858ae7a547a3109e319c6b"
 }
