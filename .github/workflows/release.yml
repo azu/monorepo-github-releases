@@ -23,6 +23,7 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     outputs:
       EXISTS_TAG: ${{ steps.tag_check.outputs.EXISTS_TAG }}
     steps:
