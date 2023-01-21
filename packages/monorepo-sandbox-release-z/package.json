@@ -1,6 +1,6 @@
 {
   "name": "@azu/monorepo-sandbox-release-z",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "[example] z is packages",
   "homepage": "https://github.com/azu/monorepo-sandbox/tree/master/packages/monorepo-sandbox-z#readme",
   "repository": {
@@ -16,7 +16,7 @@
   "main": "lib/monorepo-sandbox-z.js",
   "scripts": {},
   "dependencies": {
-    "@azu/monorepo-sandbox-release-y": "^1.9.1"
+    "@azu/monorepo-sandbox-release-y": "^1.9.2"
   },
   "publishConfig": {
     "access": "public",
