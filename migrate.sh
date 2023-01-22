@@ -11,7 +11,7 @@ function downLoadLernaWorkflows() {
   curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/create-release-pr.yml" >.github/workflows/create-release-pr.yml
   echo_message "Create .github/workflows/create-release-pr.yml"
   curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/release.yml" |
-    sed -e "s/^.*# [EXAMPLE]$//g" |
+    sed -e "s/^.*# \[EXAMPLE\]$//g" |
     sed -e "s/# registry-url/registry-url/" |
     sed -e "s/# NODE_AUTH_TOKEN/NODE_AUTH_TOKEN/g"  >.github/workflows/release.yml
   echo_message "Create .github/workflows/release.yml"
@@ -26,7 +26,7 @@ function downLoadNpmWorkflows() {
   echo_message "Create .github/workflows/create-release-pr.yml"
   curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/release.yml" |
     sed -e "s/lerna.json/package.json/g" |
-    sed -e "s/^.*# [EXAMPLE]$//g" |
+    sed -e "s/^.*# \[EXAMPLE\]$//g" |
     sed -e "s/# registry-url/registry-url/" |
     sed -e "s/# NODE_AUTH_TOKEN/NODE_AUTH_TOKEN/g" >.github/workflows/release.yml
   echo_message "Create .github/workflows/release.yml"
