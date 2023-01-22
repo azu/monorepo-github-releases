@@ -4,7 +4,9 @@ This example monorepo shows release flow with [lerna](https://github.com/lerna/l
 
 You can publish packages in monorepo via CI(Pattern A) or Local(Pattern B).
 
-## Pattern A: Review Release PR and Publish via CI
+## Usage
+
+### Pattern A: Review Release PR and Publish via CI
 
 UseCase:
 
@@ -31,7 +33,7 @@ Steps:
 > **Warning**
 > If the publishing(Step 5) is failed, you can re-run the workflow, or You can move to Pattern A-5.
 
-## Pattern A-5: Just Publish from CI 
+### Pattern A-5: Just Publish from CI 
 
 Pattern A's step 5 is failed in sometimes because npm registry is down or some package is broken.
 
@@ -80,6 +82,14 @@ This command do next steps:
 1. Update `lerna.json`'s `version` and `packages/*/package.json`'s `version`
 2. Publish to npm
 3. Create Release Note on GitHub Releases
+
+## Migration Script
+
+if you want to use this release flow, you can use [migration script](./migrate.sh).
+
+    # Download and run migration script
+    curl -fsSL https://raw.githubusercontent.com/azu/monorepo-github-releases/main/migrate.sh | bash
+
 
 ## Changelog
 
