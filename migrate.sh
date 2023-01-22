@@ -2,7 +2,7 @@
 
 # This script is used to migrate to GitHub Release-based workflow.
 function echo_message() {
-  echo "🤖$1"
+  echo "🤖 $1"
 }
 
 function downLoadLernaWorkflows() {
