@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Select lerna or npm
+declare packageType
+packageType=$(test -f lerna.json && echo "lerna" || echo "npm")
+declare packageManager
+packageManager=$(test -f yarn.lock && echo "yarn" || echo "npm")
+
 # This script is used to migrate to GitHub Release-based workflow.
 function echo_message() {
   echo "🤖 $1"
@@ -13,7 +19,10 @@ function downLoadLernaWorkflows() {
   curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/release.yml" |
     sed -r "s/^(\s*)(.*)# \[EXAMPLE\]$/\1#\2/g" |
     sed -e "s/# registry-url/registry-url/" |
-    sed -e "s/# NODE_AUTH_TOKEN/NODE_AUTH_TOKEN/g"  >.github/workflows/release.yml
+    sed -e "s/# NODE_AUTH_TOKEN/NODE_AUTH_TOKEN/g" >.github/workflows/release.yml
+  if [[ "$packageManager" = "npm" ]]; then
+    sed -e "s/yarn install/npm ci/g" .github/workflows/release.yml
+  fi
   echo_message "Create .github/workflows/release.yml"
 
 }
@@ -29,6 +38,9 @@ function downLoadNpmWorkflows() {
     sed -r "s/^(\s*)(.*)# \[EXAMPLE\]$/\1#\2/g" |
     sed -e "s/# registry-url/registry-url/" |
     sed -e "s/# NODE_AUTH_TOKEN/NODE_AUTH_TOKEN/g" >.github/workflows/release.yml
+  if [[ "$packageManager" = "npm" ]]; then
+    sed -e "s/yarn install/npm ci/g" .github/workflows/release.yml
+  fi
   echo_message "Create .github/workflows/release.yml"
 }
 
@@ -52,11 +64,7 @@ function migrateNpm() {
   npm pkg set "ci:release"="npm publish --yes"
 }
 
-# Select lerna or npm
-declare package_manager
-package_manager=$(test -f lerna.json && echo "lerna" || echo "npm")
-
-if [ "$package_manager" = "lerna" ]; then
+if [ "$packageType" = "lerna" ]; then
   migrateLerna
   downLoadLernaWorkflows
 else
