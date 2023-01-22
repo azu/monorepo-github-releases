@@ -10,7 +10,10 @@ function downLoadLernaWorkflows() {
   echo_message "Download .github/workflows for Lerna"
   curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/create-release-pr.yml" >.github/workflows/create-release-pr.yml
   echo_message "Create .github/workflows/create-release-pr.yml"
-  curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/release.yml" >.github/workflows/release.yml
+  curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/release.yml" |
+    sed -e "s/^.*# [EXAMPLE]$//g" |
+    sed -e "s/# registry-url/registry-url/" |
+    sed -e "s/# NODE_AUTH_TOKEN/NODE_AUTH_TOKEN/g"  >.github/workflows/release.yml
   echo_message "Create .github/workflows/release.yml"
 
 }
@@ -22,7 +25,10 @@ function downLoadNpmWorkflows() {
 
   echo_message "Create .github/workflows/create-release-pr.yml"
   curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/release.yml" |
-    sed -e "s/lerna.json/package.json/g" >.github/workflows/release.yml
+    sed -e "s/lerna.json/package.json/g" |
+    sed -e "s/^.*# [EXAMPLE]$//g" |
+    sed -e "s/# registry-url/registry-url/" |
+    sed -e "s/# NODE_AUTH_TOKEN/NODE_AUTH_TOKEN/g" >.github/workflows/release.yml
   echo_message "Create .github/workflows/release.yml"
 }
 
@@ -45,7 +51,6 @@ function migrateNpm() {
   npm pkg set "commit-version"="git add . && git commit -m \"chore(release): v\$(node -p 'require(\"./package.json\").version')\""
   npm pkg set "ci:release"="npm publish --yes"
 }
-
 
 # Select lerna or npm
 declare package_manager
