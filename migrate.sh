@@ -2,7 +2,7 @@
 
 # This script is used to migrate to GitHub Release-based workflow.
 function echo_message() {
-  echo "\033[31m=>\033[0m \033[036m$1\033[0m"
+  echo "🤖$1"
 }
 
 function downLoadLernaWorkflows() {
