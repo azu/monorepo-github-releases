@@ -89,7 +89,7 @@ if you want to use this release flow, you can use [migration script](./migrate.s
 
     curl -fsSL https://raw.githubusercontent.com/azu/monorepo-github-releases/main/migrate.sh | bash
 
-This migration script support npm and lerna.
+This migration script support a single npm package and lerna.
 
 ## Changelog
 
