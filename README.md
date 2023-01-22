@@ -97,7 +97,7 @@ See [Releases page](https://github.com/azu/monorepo-sandbox[]()/releases).
 
 ## Develop
 
-This monorepo uses GitHUb Packages Registry.
+This monorepo uses GitHub Packages Registry.
 
 npm package name link to repository owner on GitHUb Packages Registry.
 
