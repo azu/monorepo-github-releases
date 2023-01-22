@@ -93,7 +93,7 @@ This migration script support a single npm package and lerna.
 
 ## Changelog
 
-See [Releases page](https://github.com/azu/monorepo-sandbox[]()/releases).
+See [Releases page](https://github.com/azu/monorepo-sandbox/releases).
 
 ## Develop
 
