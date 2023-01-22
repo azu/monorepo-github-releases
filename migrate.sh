@@ -5,18 +5,6 @@ function echo_message() {
   echo "\033[31m=>\033[0m \033[036m$1\033[0m"
 }
 
-# Select lerna or npm
-declare package_manager
-package_manager=$(test -f lerna.json && echo "lerna" || echo "npm")
-
-if [ "$package_manager" = "lerna" ]; then
-  migrateLerna
-  downLoadLernaWorkflows
-else
-  migrateNpm
-  downLoadNpmWorkflows
-fi
-
 function downLoadLernaWorkflows() {
   echo_message "Download .github/workflows for Lerna"
   curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/create-release-pr.yml" >.github/workflows/create-release-pr.yml
@@ -55,3 +43,16 @@ function migrateNpm() {
   npm pkg set "commit-version"="git add . && git commit -m \"chore(release): v$(node -p 'require(\"./package.json\").version')\"",
   npm pkg set "ci:release"="npm publish --yes",
 }
+
+
+# Select lerna or npm
+declare package_manager
+package_manager=$(test -f lerna.json && echo "lerna" || echo "npm")
+
+if [ "$package_manager" = "lerna" ]; then
+  migrateLerna
+  downLoadLernaWorkflows
+else
+  migrateNpm
+  downLoadNpmWorkflows
+fi
