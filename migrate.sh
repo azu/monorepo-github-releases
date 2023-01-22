@@ -6,6 +6,7 @@ function echo_message() {
 }
 
 function downLoadLernaWorkflows() {
+  mkdir -p .github/workflows
   echo_message "Download .github/workflows for Lerna"
   curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/create-release-pr.yml" >.github/workflows/create-release-pr.yml
   echo_message "Create .github/workflows/create-release-pr.yml"
@@ -14,6 +15,7 @@ function downLoadLernaWorkflows() {
 
 }
 function downLoadNpmWorkflows() {
+  mkdir -p .github/workflows
   echo_message "Download .github/workflows"
   curl -fsSL "https://raw.githubusercontent.com/azu/monorepo-github-releases/main/.github/workflows/create-release-pr.yml" |
     sed -e "s/lerna.json/package.json/g" >.github/workflows/create-release-pr.yml
