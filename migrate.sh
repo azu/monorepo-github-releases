@@ -28,22 +28,22 @@ function downLoadNpmWorkflows() {
 
 function migrateLerna() {
   echo_message "Migrate package.json for Lerna"
-  npm pkg set "versionup"="lerna version",
-  npm pkg set "ci:versionup:patch"="lerna version patch --no-push --no-git-tag-version --yes && npm run commit-version",
-  npm pkg set "ci:versionup:minor"="lerna version minor --no-push --no-git-tag-version --yes && npm run commit-version",
-  npm pkg set "ci:versionup:major"="lerna version major --no-push --no-git-tag-version --yes && npm run commit-version",
-  npm pkg set "commit-version"="git add . && git commit -m \"chore(release): v\$(node -p 'require(\"./lerna.json\").version')\"",
-  npm pkg set "release"="lerna publish from-package",
+  npm pkg set "versionup"="lerna version"
+  npm pkg set "ci:versionup:patch"="lerna version patch --no-push --no-git-tag-version --yes && npm run commit-version"
+  npm pkg set "ci:versionup:minor"="lerna version minor --no-push --no-git-tag-version --yes && npm run commit-version"
+  npm pkg set "ci:versionup:major"="lerna version major --no-push --no-git-tag-version --yes && npm run commit-version"
+  npm pkg set "commit-version"="git add . && git commit -m \"chore(release): v\$(node -p 'require(\"./lerna.json\").version')\""
+  npm pkg set "release"="lerna publish from-package"
   npm pkg set "ci:release"="lerna publish from-package --yes"
 }
 
 function migrateNpm() {
   echo_message "Migrate package.json"
-  npm pkg set "ci:versionup:patch"="npm version patch --no-push --no-git-tag-version --yes && npm run commit-version",
-  npm pkg set "ci:versionup:minor"="npm version minor --no-push --no-git-tag-version --yes && npm run commit-version",
-  npm pkg set "ci:versionup:major"="npm version major --no-push --no-git-tag-version --yes && npm run commit-version",
-  npm pkg set "commit-version"="git add . && git commit -m \"chore(release): v\$(node -p 'require(\"./package.json\").version')\"",
-  npm pkg set "ci:release"="npm publish --yes",
+  npm pkg set "ci:versionup:patch"="npm version patch --no-push --no-git-tag-version --yes && npm run commit-version"
+  npm pkg set "ci:versionup:minor"="npm version minor --no-push --no-git-tag-version --yes && npm run commit-version"
+  npm pkg set "ci:versionup:major"="npm version major --no-push --no-git-tag-version --yes && npm run commit-version"
+  npm pkg set "commit-version"="git add . && git commit -m \"chore(release): v\$(node -p 'require(\"./package.json\").version')\""
+  npm pkg set "ci:release"="npm publish --yes"
 }
 
 
