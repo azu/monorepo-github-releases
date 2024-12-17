@@ -6,16 +6,16 @@
   "keywords": [
     "monorepo"
   ],
-  "homepage": "https://github.com/azu/monorepo-github-releases",
+  "homepage": "https://github.com/mirukuz/monorepo-github-releases",
   "bugs": {
-    "url": "https://github.com/azu/monorepo-github-releases/issues"
+    "url": "https://github.com/mirukuz/monorepo-github-releases/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/azu/monorepo-github-releases.git"
+    "url": "https://github.com/mirukuz/monorepo-github-releases.git"
   },
   "license": "MIT",
-  "author": "azu",
+  "author": "miruku",
   "directories": {
     "lib": "lib",
     "test": "test"
