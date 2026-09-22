@@ -3,5 +3,6 @@
     "packages/*"
   ],
   "version": "1.10.0",
-  "npmClient": "pnpm"
+  "npmClient": "pnpm",
+  "useWorkspaces": true
 }
